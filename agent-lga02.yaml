@@ -1,0 +1,40 @@
+version: "1.0"
+
+# this section is used by pktvisor
+# see https://github.com/ns1labs/pktvisor/blob/develop/RFCs/2021-04-16-75-taps.md
+visor:
+  taps:
+    default_pcap:
+      input_type: pcap
+      interface: "visor.module.input/1.0"
+      config:
+        iface: mock
+        pcap_source: mock
+
+# this section is used orb-agent
+# most sections and keys are optional
+orb:
+  # these are arbitrary key value pairs used for organization in the control plane and UI
+  #db:
+  #  file: /usr/local/orb/orb-agent.db
+  backends:
+    pktvisor:
+      binary: "/usr/local/sbin/pktvisord"
+      config_file: "/usr/local/orb/agent-lga02.yaml"
+      api_port: "10002"
+  tags:
+      env: production
+      pop: lga
+      node_type: dns
+  cloud:
+    config:
+      # optionally specify an agent name to use during auto provisioning
+      # hostname will be used if it's not specified here
+      agent_name: lga-node02
+      auto_provision: true
+    api:
+      address: https://orb.live
+      # if auto provisioning, specify API token here (or pass on the command line)
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjNTliY2Y0Mi0xYWU1LTQxMGYtYmE0My1mZjcxMzliMmU3NTIiLCJpYXQiOjE2NTE1ODg1NjIsImlzcyI6Im1haW5mbHV4LmF1dGgiLCJzdWIiOiJyYm91Y2hlckBuczEuY29tIiwiaXNzdWVyX2lkIjoiZTJlOGJjMjgtODM1Yy00MGFmLThlZDAtMWExMWUyMGM4ZWI1IiwidHlwZSI6Mn0.62oWDovLvBl85OTkpmT4S_lzFcIz8O6EoA7S534nNUI
+    mqtt:
+      address: tls://orb.live:8883

@@ -1,0 +1,8 @@
+docker run -d --net=host \
+--name=orb-mock \
+-e ORB_CLOUD_ADDRESS=orb.live \
+-e ORB_CLOUD_MQTT_ID=533856a3-913c-47ad-9807-e1bde032e646 \
+-e ORB_CLOUD_MQTT_CHANNEL_ID=a210bc0a-b3c6-4f9b-a5e2-54d7382ff0a9 \
+-e ORB_CLOUD_MQTT_KEY=a1ed4a11-9f29-459d-9eda-945fd9e8981f \
+-e PKTVISOR_PCAP_IFACE_DEFAULT=mock \
+ns1labs/orb-agent:develop

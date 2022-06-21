@@ -1,0 +1,42 @@
+88463219-f869-43f6-925a-04b3790c1bca
+
+
+enp0s3
+
+docker run -d --net=host \
+-e ORB_CLOUD_ADDRESS=orb.live \
+-e ORB_CLOUD_MQTT_ID=a4315b19-1a6e-4ecb-9b87-9908c7b5c9cf \
+-e ORB_CLOUD_MQTT_CHANNEL_ID=16bd1e66-dc05-442c-93ee-73a7cc6611ff \
+-e ORB_CLOUD_MQTT_KEY=88463219-f869-43f6-925a-04b3790c1bca \
+-e PKTVISOR_PCAP_IFACE_DEFAULT=enp0s3 \
+ns1labs/orb-agent:develop
+
+
+
+docker run -d --net=host \
+--name=orb_agent \
+-e ORB_CLOUD_ADDRESS=orb.live \
+-e ORB_CLOUD_MQTT_ID=35a5fef1-d3ea-44e4-a9c7-a46ca5d3a823 \
+-e ORB_CLOUD_MQTT_CHANNEL_ID=9887b112-1f91-44fd-a4cc-172f1eb3b23b \
+-e ORB_CLOUD_MQTT_KEY=72e7822f-cf1f-432a-9761-bd4ada3d43e9 \
+-e PKTVISOR_PCAP_IFACE_DEFAULT=enp0s3 \
+ns1labs/orb-agent:develop
+
+
+docker run -d --net=host \
+--name=orb \
+-e ORB_CLOUD_ADDRESS=orb.live \
+-e ORB_CLOUD_MQTT_ID=3031bd68-693f-4ca1-b3f8-2a8f0fdea18a \
+-e ORB_CLOUD_MQTT_CHANNEL_ID=7b58fbb2-3c7e-44a7-9ff8-9c1d10690153 \
+-e ORB_CLOUD_MQTT_KEY=e1d3f90b-885a-4c16-95b8-0f921f6d3dab \
+-e PKTVISOR_PCAP_IFACE_DEFAULT=enp0s3 \
+ns1labs/orb-agent:develop
+
+docker run -d -P \
+--name=orb \
+-e ORB_CLOUD_ADDRESS=orb.live \
+-e ORB_CLOUD_MQTT_ID=db7c1b12-f180-4166-899c-513c16f1c552 \
+-e ORB_CLOUD_MQTT_CHANNEL_ID=3e997320-512f-4878-a1c0-7f24b1e5edf6 \
+-e ORB_CLOUD_MQTT_KEY=d62ed651-de8e-4dd1-b04d-1b696a1d6258 \
+-e PKTVISOR_PCAP_IFACE_DEFAULT=eth0 \
+ns1labs/orb-agent:latest
